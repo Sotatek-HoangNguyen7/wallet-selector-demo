@@ -1,7 +1,7 @@
 {
-  "name": "my-app",
+  "name": "wallet-selector-auro",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@babel/core": "^7.21.3",
     "@babel/preset-env": "^7.20.2",
@@ -17,7 +17,7 @@
     "bs58check": "^2.1.2",
     "buffer": "^6.0.3",
     "ethers": "^5.6.8",
-    "mina-signer": "git+ssh://git@github.com/sotatek-dev/mina-signer-for-snap#master",
+    "mina-signer": "git+ssh://git@github.com/sotatek-dev/mina-signer-for-snap.git#master",
     "moment": "^2.29.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -53,5 +53,21 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sotatek-HoangNguyen7/wallet-selector-demo.git"
+  },
+  "keywords": [
+    "wallet-selector-auro"
+  ],
+  "author": "hoangnguyen0305",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sotatek-HoangNguyen7/wallet-selector-demo/issues"
+  },
+  "homepage": "https://github.com/Sotatek-HoangNguyen7/wallet-selector-demo#readme"
 }
