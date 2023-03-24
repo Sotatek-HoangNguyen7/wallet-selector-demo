@@ -16,32 +16,59 @@ function Connect() {
 	const [disableConectButton, setDisableConectButton] = useState(false);
 
 	useEffect(() => {
+		reduxDispatch(setNetWork(value));
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [value]);
+
+	useEffect(() => {
 		if (localStorage.getItem("wallet") === "Auro") {
-			initAccount();
+			window.mina.on("chainChanged", async (network) => {
+				const result = await WALLET.Auro.methods.connectToAuro();
+				setValue(network);
+				const isInstalled = window.mina;
+				if (result.message) {
+					setLoading(false);
+				} else {
+					setLoading(false);
+					const accountList = await WALLET.Auro.methods.AccountList();
+					let urlProxy = "https://proxy.minaexplorer.com/";
+					if (network === "Mainnet") urlProxy = "https://proxy.minaexplorer.com/";
+					if (network === "Devnet") urlProxy = "https://proxy.devnet.minaexplorer.com/";
+					if (network === "Berkeley") urlProxy = "https://proxy.berkeley.minaexplorer.com/";
+					const { account: accountInfor } = await WALLET.Auro.methods.getAccountInfors(result.toString(), urlProxy);
+					// const txList = await await WALLET.Auro.methods.getTxHistory(urlProxy, result.toString());
+					reduxDispatch(setTransactions([]));
+					reduxDispatch(
+						connectWallet({
+							accountList,
+							isInstalled,
+						}),
+					);
+					reduxDispatch(
+						setActiveAccount({
+							activeAccount: accountInfor.publicKey,
+							balance: ethers.utils.formatUnits(accountInfor.balance.total, "gwei"),
+							accountName: accountInfor.name,
+							inferredNonce: accountInfor.inferredNonce,
+						}),
+					);
+				}
+			});
 		}
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
-	useEffect(() => {
-		reduxDispatch(setNetWork(value));
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [value]);
 
-	const initAccount = async () => {
-		if (window.mina && localStorage.getItem("wallet") === "Auro") {
-			const result = await WALLET.Auro.methods.connectToAuro();
-			const network = await window.mina.requestNetwork().catch((err) => err);
-			setValue(network);
-			const isInstalled = window.mina;
-			if (result.message) {
-				console.log(result.message);
-			} else {
+	useEffect(() => {
+		if (localStorage.getItem("wallet") === "Auro") {
+			window.mina.on("accountsChanged", async (accounts) => {
+				const isInstalled = window.mina;
 				setLoading(false);
 				const accountList = await WALLET.Auro.methods.AccountList();
 				let urlProxy = "https://proxy.minaexplorer.com/";
 				if (network === "Mainnet") urlProxy = "https://proxy.minaexplorer.com/";
 				if (network === "Devnet") urlProxy = "https://proxy.devnet.minaexplorer.com/";
 				if (network === "Berkeley") urlProxy = "https://proxy.berkeley.minaexplorer.com/";
-				const { account: accountInfor } = await WALLET.Auro.methods.getAccountInfors(result.toString(), urlProxy);
+				const { account: accountInfor } = await WALLET.Auro.methods.getAccountInfors(accounts.toString(), urlProxy);
 				// const txList = await await WALLET.Auro.methods.getTxHistory(urlProxy, result.toString());
 				reduxDispatch(setTransactions([]));
 				reduxDispatch(
@@ -58,9 +85,10 @@ function Connect() {
 						inferredNonce: accountInfor.inferredNonce,
 					}),
 				);
-			}
+			});
 		}
-	};
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, []);
 
 	const handleConnect = async () => {
 		setLoading(true);
