@@ -1,32 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./App.css";
-import Connect from "./components/connect";
-import Sign from "./components/sign";
-import Send from "./components/send";
-// import Stake from "./components/stake";
-import { useHasWalet } from "./hooks/useHasWalet";
+import { SelectWalet, SendWalet, SignWalet } from "react-wallet-selector";
 
 function App() {
-	useEffect(() => {
-		localStorage.setItem("wallet", localStorage.getItem("wallet") || "MetamaskFlask");
-	}, []);
-
-	useHasWalet();
 
 	return (
-		<div className="App">
+		<div>
 			<div className="container-fluid">
 				<div className="row mt-5">
 					<div className="col-4">
-						<Connect />
+						<SelectWalet />
 					</div>
 					<div className="col-4">
-						<Sign />
-						{/* <br /> */}
-						{/* <Stake /> */}
+						<SignWalet />
 					</div>
 					<div className="col-4">
-						<Send />
+						<SendWalet />
 					</div>
 				</div>
 			</div>
