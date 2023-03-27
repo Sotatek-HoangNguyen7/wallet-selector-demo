@@ -34,6 +34,8 @@
 
 ### `use`
 
+  ```npm i react-wallet-selector```
+
 ```js
   import React from "react";
   import { SelectWalet, SendWalet, SignWalet } from "react-wallet-selector";
