@@ -34,7 +34,7 @@
 
 ### `use`
 
-  ```npm i react-wallet-selector```
+  - ```npm i react-wallet-selector```
 
 ```js
   import React from "react";
