@@ -1,0 +1,11 @@
+.ant-collapse-header {
+	width: fit-content !important;
+}
+
+.ant-collapse-content-box {
+	padding: 0 !important;
+}
+
+.ant-form-item-control-input {
+	background-color: #fff !important;
+}
