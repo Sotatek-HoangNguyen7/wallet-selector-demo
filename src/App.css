@@ -9,3 +9,16 @@
 .ant-form-item-control-input {
 	background-color: #fff !important;
 }
+
+.ant-form-item-label {
+	text-align: start !important;
+}
+
+.ant-input-suffix {
+	color: #1677ff !important;
+}
+
+.ant-collapse-header {
+	padding-left: 0 !important;
+	color: #1677ff !important;
+}
