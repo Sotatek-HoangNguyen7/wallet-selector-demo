@@ -1,6 +1,6 @@
 {
   "name": "wallet-selector-auro",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": false,
   "dependencies": {
     "@babel/core": "^7.21.3",
@@ -23,7 +23,7 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-scripts": "5.0.1",
-    "react-wallet-selector": "^2.5.7",
+    "react-wallet-selector": "^2.5.8",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
     "stream": "0.0.2",
