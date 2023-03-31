@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { SelectWalet, SendWalet, SignWalet } from "react-wallet-selector";
+import {  SelectWallet, SendWallet, SignWallet } from "react-wallet-selector";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -8,13 +8,13 @@ function App() {
 		<div className="container-fluid">
 			<div className="row mt-5">
 				<div className="col-4">
-					<SelectWalet />
+					<SelectWallet />
 				</div>
 				<div className="col-4">
-					<SignWalet />
+					<SignWallet />
 				</div>
 				<div className="col-4">
-					<SendWalet />
+					<SendWallet />
 				</div>
 			</div>
 		</div>
