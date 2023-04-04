@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import {  SelectWallet, SendWallet, SignWallet } from "react-wallet-selector";
+import {  SelectWallet, SendWallet, SignWallet, SendtTransactionZkapp } from "react-wallet-selector";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -12,6 +12,8 @@ function App() {
 				</div>
 				<div className="col-4">
 					<SignWallet />
+					<br />
+					<SendtTransactionZkapp />
 				</div>
 				<div className="col-4">
 					<SendWallet />
