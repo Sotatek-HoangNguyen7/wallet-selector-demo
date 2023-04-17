@@ -1,7 +1,8 @@
 import React from "react";
 import "./App.css";
-import {  SelectWallet, SendWallet, SignWallet, SendtTransactionZkapp } from "react-wallet-selector";
+import {  SelectWallet, SendtTransactionZkapp, SendWallet, SignWallet } from "react-wallet-selector";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "../node_modules/react-wallet-selector/dist/index.min.css";
 
 function App() {
 	return (
