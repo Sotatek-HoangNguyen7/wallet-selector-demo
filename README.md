@@ -6,7 +6,6 @@
   import React from "react";
   import { SelectWalet, SendWalet, SignWalet } from "react-wallet-selector";
   import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-  import "../node_modules/react-wallet-selector/dist/index.min.css";
 
   function App() {
 

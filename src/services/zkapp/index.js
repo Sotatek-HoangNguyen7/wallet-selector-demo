@@ -10,7 +10,7 @@ import {
   setGraphqlEndpoint
 } from 'snarkyjs'
 
-import { Quiz } from './contract/Quiz'
+import { Square } from './contract/Quiz'
 
 let timingStack = []
 let i = 0
@@ -26,9 +26,7 @@ function toc() {
   console.log(`\r${label}... ${time.toFixed(3)} sec\n`)
 }
 
-const zkAppAddress = 'B62qkSQ4N59BUV3TxMG7YNLSYz3aRpS1nCCKJGaSQajMWnrZt5iCE5j'
-
-const url = `https://proxy.berkeley.minaexplorer.com/graphql`
+const zkAppAddress = 'B62qoTyWQjipMkRHe2EbVnAjaJ8NuV1u3EzsERmH1ArxZQSYu4WYjou'
 
 export async function getZkbody(answer) {
   try {
@@ -36,11 +34,11 @@ export async function getZkbody(answer) {
     await isReady
     toc()
 
-    setGraphqlEndpoint(url)
+    setGraphqlEndpoint('https://proxy.berkeley.minaexplorer.com/graphql')
 
     const address = PublicKey.fromBase58(zkAppAddress)
 
-    const zkApp = new Quiz(address)
+    const zkApp = new Square(address)
 
     console.log('zkApp', zkApp)
 
@@ -58,7 +56,7 @@ export async function getZkbody(answer) {
 
     tic('begin compile')
 
-    const compile = await Quiz.compile()
+    const compile = await Square.compile()
 
     console.log("compile", compile)
 
@@ -111,11 +109,11 @@ export async function getzkState() {
     await isReady
     toc()
 
-    setGraphqlEndpoint(url)
+    setGraphqlEndpoint('https://proxy.berkeley.minaexplorer.com/graphql')
 
     const address = PublicKey.fromBase58(zkAppAddress)
 
-    const zkApp = new Quiz(address)
+    const zkApp = new Square(address)
 
     console.log('zkApp', zkApp)
 
@@ -131,7 +129,7 @@ export async function getzkState() {
 
     tic('begin compile')
 
-    const compile = await Quiz.compile()
+    const compile = await Square.compile()
 
     console.log("compile", compile)
 
