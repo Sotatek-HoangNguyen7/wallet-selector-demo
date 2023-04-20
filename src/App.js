@@ -13,7 +13,7 @@ function App() {
 				<div className="col-4">
 					<SignWallet />
 					<br />
-					<SendtTransactionZkapp />
+					<SendtTransactionZkapp zkAppAddress={process.env.REACT_APP_SC} />
 				</div>
 				<div className="col-4">
 					<SendWallet />
